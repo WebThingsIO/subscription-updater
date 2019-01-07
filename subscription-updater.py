@@ -202,7 +202,7 @@ app = Sanic()
 Compress(app)
 
 
-@app.route('/subscribe', methods=['GET'])
+@app.route('/preferences', methods=['GET'])
 async def get_form(request):
     value = request.args.get('email', '')
     value = value\
@@ -214,7 +214,7 @@ async def get_form(request):
     return html(_FORM.format(css=_CSS, value=value))
 
 
-@app.route('/subscribe', methods=['POST'])
+@app.route('/preferences', methods=['POST'])
 async def post_form(request):
     email = request.form.get('email', None)
     if not email:
