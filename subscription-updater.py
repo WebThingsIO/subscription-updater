@@ -179,7 +179,7 @@ def open_database():
         return None
 
 
-def update_optout(email, optout=True):
+def update_optout(email, optout):
     conn = open_database()
     if not conn:
         return False
@@ -187,9 +187,11 @@ def update_optout(email, optout=True):
     try:
         with conn.cursor() as cursor:
             cursor.execute(
-                'UPDATE accounts SET optout = %d WHERE email = %s',
+                'UPDATE accounts SET optout = %s WHERE email = %s',
                 (1 if optout else 0, email)
             )
+            conn.commit()
+            cursor.close()
     except Exception:
         pass
 
@@ -220,10 +222,9 @@ async def post_form(request):
     if not email:
         abort(400)
 
-    subscribe = request.form.get('subscribe', False)
-    optout = not subscribe
+    optout = request.form.get('subscribe', '0') != '1'
 
-    if update_optout(email, optout=optout):
+    if update_optout(email, optout):
         return html(_SUCCESS.format(css=_CSS))
 
     return html(_ERROR.format(css=_CSS))
