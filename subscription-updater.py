@@ -121,7 +121,7 @@ _FORM = '''
                 </a>
             </label>
             <br>
-            <input type="submit">
+            <input type="submit" value="Submit">
         </form>
     </body>
 </html>
