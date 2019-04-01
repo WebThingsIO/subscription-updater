@@ -102,11 +102,11 @@ _FORM = '''
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Update Subscription - Mozilla IoT</title>
+        <title>Update Subscription - WebThings Gateway</title>
         {css}
     </head>
     <body>
-        <h1>Update Mozilla IoT Email Subscription</h1>
+        <h1>Update Mozilla WebThings Email Subscription</h1>
         <form method="post">
             <input type="email" name="email" id="email"
                 placeholder="Email address" value="{value}" required>
@@ -131,7 +131,7 @@ _SUCCESS = '''
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Update Subscription - Mozilla IoT</title>
+        <title>Update Subscription - WebThings Gateway</title>
         {css}
     </head>
     <body>
@@ -144,7 +144,7 @@ _ERROR = '''
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Update Subscription - Mozilla IoT</title>
+        <title>Update Subscription - WebThings Gateway</title>
         {css}
     </head>
     <body>
